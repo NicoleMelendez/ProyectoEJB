@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+       xmlns:f="http://java.sun.com/jsf/core"
+       xmlns:p="http://primefaces.org/ui">
+        
+    <title>Eliminar salario</title>
+    <h:head>
+        <title>Eliminar</title>
+    </h:head>
+    <h:body> 
+        
+        <center><h3><font face="Verdana, Geneva, sans-serif">Eliminar salario</font></h3></center>
+       <br />
+       <h:form id="salario">
+   <p:growl id="growl" sticky="true" />
+   <p:dataTable id="salarioList" var="salario" value="#{salariobean.salario}">
+      <p:column headerText="Id">
+          <h:outputText value="#{salario.id}"/>
+      </p:column>
+ 
+      <p:column headerText="Nombres">
+          <h:outputText id="nombres" value="#{salario.nombres}"/>
+      </p:column>
+ 
+      <p:column headerText="Apellidos">
+          <h:outputText id="apellidos" value="#{salario.apellidos}"/>
+       </p:column>
+ 
+       <p:column headerText="Departamento">
+           <h:outputText id="departamento" value="#{salario.departamento}"/>
+       </p:column>
+ 
+       <p:column headerText="Cargo">
+           <h:outputText id="cargo" value="#{salario.cargo}"/>
+       </p:column>
+       
+       <p:column headerText="Salario">
+           <h:outputText id="salario" value="#{salario.salario}"/>
+       </p:column>
+       
+       <p:column headerText="Fecha">
+           <h:outputText id="fecha" value="#{salario.fecha}"/>
+       </p:column>
+       
+                 
+        <p:column>
+           <p:commandButton update="salarioList" value="Eliminar" icon="ui-icon-closethick"
+                            action="#{salariobean.Eliminar(salario)}"
+                        styleClass="ui-priority-primary">
+           </p:commandButton>
+        </p:column>
+     </p:dataTable>
+     <br/>
+     </h:form>
+    </h:body>
+</html>
